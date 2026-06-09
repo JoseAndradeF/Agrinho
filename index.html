@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável - Agrinho 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        agroGreen: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        earthBrown: {
+                            100: '#f5f5f4',
+                            600: '#78716c',
+                            800: '#44403c',
+                            900: '#292524',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-pattern {
+            background-color: #14532d;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+        .custom-shape-divider-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .custom-shape-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        .custom-shape-divider-bottom .shape-fill {
+            fill: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-agroGreen-600 selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <div class="flex items-center space-x-3">
+                    <!-- Leaf SVG Logo -->
+                    <div class="p-2 bg-agroGreen-600 rounded-xl shadow-md text-white">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0c1.5 0 3-1.5 3-3s-1.5-3-3-3-3 1.5-3 3 1.5 3 3 3z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-lg sm:text-2xl font-extrabold tracking-tight text-agroGreen-800 block leading-tight">Agrinho 2026</span>
+                        <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-agroGreen-600 block">Futuro Sustentável</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#equilibrio" class="text-sm font-medium text-stone-600 hover:text-agroGreen-700 transition">O Equilíbrio</a>
+                    <a href="#embrapa" class="text-sm font-medium text-stone-600 hover:text-agroGreen-700 transition">Ciência Embrapa</a>
+                    <a href="#ibama" class="text-sm font-medium text-stone-600 hover:text-agroGreen-700 transition">Proteção IBAMA</a>
+                    <a href="#sustentometro" class="text-sm font-medium text-stone-600 hover:text-agroGreen-700 transition">Quiz Interativo</a>
+                    <a href="#agir" class="bg-agroGreen-600 hover:bg-agroGreen-700 text-white px-4 py-2 rounded-xl text-sm font-semibold shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">Como Ajudar?</a>
+                </nav>
+
+                <!-- Mobile Menu Button (Toggleable via Simple JS) -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-stone-600 hover:bg-stone-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 py-3 space-y-2">
+            <a href="#equilibrio" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-stone-700 hover:bg-stone-50 hover:text-agroGreen-700 font-medium">O Equilíbrio</a>
+            <a href="#embrapa" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-stone-700 hover:bg-stone-50 hover:text-agroGreen-700 font-medium">Ciência Embrapa</a>
+            <a href="#ibama" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-stone-700 hover:bg-stone-50 hover:text-agroGreen-700 font-medium">Proteção IBAMA</a>
+            <a href="#sustentometro" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-stone-700 hover:bg-stone-50 hover:text-agroGreen-700 font-medium">Quiz Interativo</a>
+            <a href="#agir" onclick="toggleMobileMenu()" class="block text-center bg-agroGreen-600 text-white px-4 py-2.5 rounded-xl font-semibold shadow-md mt-2">Como Ajudar?</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative hero-pattern text-white pt-16 pb-28 sm:pt-24 sm:pb-36 overflow-hidden">
+        <!-- Sun decoration -->
+        <div class="absolute right-0 top-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-yellow-400/10 blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur border border-white/20 px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide text-yellow-300">
+                        <span class="flex h-2.5 w-2.5 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-400"></span>
+                        </span>
+                        <span>Tema do Concurso Agrinho 2026</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight sm:leading-none">
+                        Agro forte, <br class="hidden sm:inline">
+                        <span class="text-emerald-300">futuro sustentável</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-stone-200 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        É perfeitamente possível produzir alimento de qualidade e, ao mesmo tempo, regenerar nossa biodiversidade. Descubra como a ciência e as regras de proteção constroem um equilíbrio real.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#equilibrio" class="w-full sm:w-auto text-center bg-emerald-500 hover:bg-emerald-400 text-white font-bold px-8 py-4 rounded-2xl shadow-xl hover:shadow-emerald-500/30 transition-all hover:-translate-y-0.5">
+                            Começar Jornada
+                        </a>
+                        <a href="#sustentometro" class="w-full sm:w-auto text-center bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-8 py-4 rounded-2xl transition-all">
+                            Testar Meus Conhecimentos
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- SVG Plant & Field Illustration -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+                        <!-- Background glow -->
+                        <div class="absolute inset-0 bg-emerald-500/20 rounded-full blur-3xl"></div>
+                        <!-- Custom SVG Vector Graphic representing balance -->
+                        <svg class="w-full h-full relative z-10" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Blue planet/Earth backdrop partial -->
+                            <circle cx="200" cy="200" r="160" stroke="#059669" stroke-width="2" stroke-dasharray="8 8" opacity="0.3" />
+                            <circle cx="200" cy="200" r="140" fill="#047857" opacity="0.1" />
+                            
+                            <!-- Green field curves -->
+                            <path d="M60,260 Q130,220 200,260 T340,260 L340,340 L60,340 Z" fill="#065f46" opacity="0.8" />
+                            <path d="M100,280 Q180,240 260,280 T300,310 L300,340 L100,340 Z" fill="#047857" />
+                            
+                            <!-- Sprout growing -->
+                            <path d="M200,300 C200,240 180,180 140,150 C160,180 180,220 190,260" stroke="#a7f3d0" stroke-width="8" stroke-linecap="round" />
+                            <path d="M200,300 C200,240 220,180 260,150 C240,180 220,220 210,260" stroke="#10b981" stroke-width="8" stroke-linecap="round" />
+                            
+                            <!-- Left Leaf shape -->
+                            <path d="M140,150 C120,130 90,140 80,160 C90,180 120,180 140,150 Z" fill="#34d399" />
+                            <!-- Right Leaf shape -->
+                            <path d="M260,150 C280,130 310,140 320,160 C310,180 280,180 260,150 Z" fill="#059669" />
+                            
+                            <!-- Little seedling sun/energy circles -->
+                            <circle cx="200" cy="110" r="15" fill="#facc15" />
+                            <circle cx="200" cy="110" r="25" stroke="#facc15" stroke-dasharray="4 4" stroke-width="2" opacity="0.7" />
+                            
+                            <!-- Tech network dots representing precision farming -->
+                            <line x1="80" y1="160" x2="200" y2="110" stroke="#a7f3d0" stroke-width="1.5" stroke-dasharray="2 2" />
+                            <line x1="320" y1="160" x2="200" y2="110" stroke="#a7f3d0" stroke-width="1.5" stroke-dasharray="2 2" />
+                            <circle cx="80" cy="160" r="5" fill="#60a5fa" />
+                            <circle cx="320" cy="160" r="5" fill="#60a5fa" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Curve Divider -->
+        <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V120H0C52.17,112.19,124.71,96.84,175.77,88.75,244.7,77.9,285,63.15,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Section 1: O Equilíbrio da Sustentabilidade -->
+    <section id="equilibrio" class="py-16 sm:py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-base text-agroGreen-600 font-extrabold tracking-wide uppercase">Equilíbrio Essencial</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">O Grande Desafio de Nosso Tempo</p>
+                <div class="h-1 w-20 bg-agroGreen-600 mx-auto rounded-full"></div>
+                <p class="text-stone-600 text-lg sm:text-xl font-normal leading-relaxed">
+                    O Brasil é um dos maiores produtores de alimentos, fibras e energia do mundo. Garantir a subsistência do planeta e a força do PIB sem comprometer os recursos naturais exige a perfeita sintonia entre a produtividade e a conservação da fauna e flora.
+                </p>
+            </div>
+
+            <!-- Dashboard of facts / 3 Key Concepts -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Concept 1 -->
+                <div class="bg-stone-50 border border-stone-200/60 rounded-3xl p-8 hover:shadow-xl transition-all hover:border-agroGreen-200 group">
+                    <div class="w-12 h-12 bg-emerald-100 text-agroGreen-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-agroGreen-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-wheat-awn text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-950 mb-3">Produção em Escala</h3>
+                    <p class="text-stone-600 leading-relaxed">
+                        Atender à crescente demanda de alimentos global é crucial. Para isso, precisamos otimizar cada metro quadrado produtivo já existente, poupando a abertura de novas áreas florestais.
+                    </p>
+                </div>
+
+                <!-- Concept 2 -->
+                <div class="bg-stone-50 border border-stone-200/60 rounded-3xl p-8 hover:shadow-xl transition-all hover:border-agroGreen-200 group">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-droplet text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-950 mb-3">Conservação dos Recursos</h3>
+                    <p class="text-stone-600 leading-relaxed">
+                        A agricultura de irrigação consome cerca de 72% da demanda de captação de água no país. Manter nascentes preservadas e solo fértil é a garantia de que o próprio agronegócio continuará viável.
+                    </p>
+                </div>
+
+                <!-- Concept 3 -->
+                <div class="bg-stone-50 border border-stone-200/60 rounded-3xl p-8 hover:shadow-xl transition-all hover:border-agroGreen-200 group">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-seedling text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-950 mb-3">Inovação e Tecnologia</h3>
+                    <p class="text-stone-600 leading-relaxed">
+                        Cientistas desenvolvem produtos biológicos e sistemas integrados que substituem a química agressiva por dinâmicas naturais da própria ecologia do solo e do ar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Big Stat Panel -->
+            <div class="mt-16 bg-gradient-to-br from-agroGreen-900 to-emerald-850 rounded-3xl text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+                <!-- Background decoration overlay -->
+                <div class="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                <div class="relative z-10 grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-8 space-y-4">
+                        <h4 class="text-amber-400 font-extrabold uppercase tracking-wider text-sm">Ocupação do Solo no Brasil</h4>
+                        <h3 class="text-2xl sm:text-3xl font-bold tracking-tight">Cerca de 30% do Território é Ocupado pelo Agro</h3>
+                        <p class="text-stone-200 text-base leading-relaxed">
+                            Dados compilados mostram que lavouras e florestas plantadas ocupam aproximadamente 9%, enquanto as pastagens cobrem em torno de 21%. O restante do país é composto por vegetação nativa preservada, unidades de conservação e terras indígenas, mostrando a imensidão que protegemos.
+                        </p>
+                    </div>
+                    <div class="md:col-span-4 flex flex-col items-center md:items-end justify-center">
+                        <div class="text-center md:text-right bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 w-full max-w-[240px]">
+                            <span class="block text-4xl sm:text-5xl font-black text-amber-400">30%</span>
+                            <span class="block text-xs uppercase tracking-widest text-stone-200 mt-1">Uso de Terras</span>
+                            <span class="block text-[11px] text-emerald-300 mt-2">Agropecuária Responsável</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Embrapa e a Ciência do Futuro -->
+    <section id="embrapa" class="py-16 sm:py-24 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center space-x-2 bg-agroGreen-100 text-agroGreen-800 px-3 py-1 rounded-full text-sm font-semibold">
+                    <i class="fa-solid fa-microscope text-xs"></i>
+                    <span>Inovação Embrapa</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">Como Produzir Mais Sem Agredir o Ecossistema?</h2>
+                <p class="text-stone-600 text-lg leading-relaxed">
+                    A Empresa Brasileira de Pesquisa Agropecuária (EMBRAPA) desenvolve e aprimora tecnologias fantásticas que provam o equilíbrio. Veja os quatro maiores pilares dessa revolução:
+                </p>
+            </div>
+
+            <!-- Interative Tab / Card Showcase for EMBRAPA technologies -->
+            <div class="grid lg:grid-cols-4 gap-8">
+                <!-- Tech 1 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 hover:scale-[1.02] transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5 font-bold text-lg">01</div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-3">ILPF</h4>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                            <strong>Integração Lavoura-Pecuária-Floresta.</strong> Reúne diferentes sistemas em uma mesma área de terra de forma rotativa. Recupera solos degradados, gera sombra para o gado (conforto térmico) e sequestra toneladas de carbono.
+                        </p>
+                    </div>
+                    <div class="border-t border-stone-100 pt-4 mt-4 flex items-center text-xs font-semibold text-agroGreen-700">
+                        <i class="fa-solid fa-circle-check mr-2"></i> Adotada em 11,5+ Milhões de Hectares
+                    </div>
+                </div>
+
+                <!-- Tech 2 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 hover:scale-[1.02] transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-5 font-bold text-lg">02</div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-3">FBN (Fixação Biológica)</h4>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                            Em vez de fertilizantes químicos importados e caros, os cientistas utilizam <strong>bactérias naturais</strong> que capturam o nitrogênio diretamente do ar para alimentar as plantas (como a soja e o milho). Economia gigantesca e água limpa!
+                        </p>
+                    </div>
+                    <div class="border-t border-stone-100 pt-4 mt-4 flex items-center text-xs font-semibold text-agroGreen-700">
+                        <i class="fa-solid fa-circle-check mr-2"></i> Dispensa insumos químicos nocivos
+                    </div>
+                </div>
+
+                <!-- Tech 3 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 hover:scale-[1.02] transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-5 font-bold text-lg">03</div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-3">Controle Biológico</h4>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                            Uso da própria biodiversidade de insetos e fungos aliados para conter pragas. Exemplo: O produto biológico <strong>Spodovir</strong>, que elimina a lagarta-do-cartucho sem afetar abelhas, animais ou seres humanos.
+                        </p>
+                    </div>
+                    <div class="border-t border-stone-100 pt-4 mt-4 flex items-center text-xs font-semibold text-agroGreen-700">
+                        <i class="fa-solid fa-circle-check mr-2"></i> 100% inofensivo a humanos
+                    </div>
+                </div>
+
+                <!-- Tech 4 -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200 hover:scale-[1.02] transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-5 font-bold text-lg">04</div>
+                        <h4 class="text-xl font-bold text-stone-900 mb-3">Agricultura de Precisão</h4>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-4">
+                            Sensores de umidade, GPS nos tratores e inteligência artificial identificam o ponto exato que necessita de água ou nutrientes. Isso reduz o desperdício de recursos escassos drasticamente.
+                        </p>
+                    </div>
+                    <div class="border-t border-stone-100 pt-4 mt-4 flex items-center text-xs font-semibold text-agroGreen-700">
+                        <i class="fa-solid fa-circle-check mr-2"></i> Economia hídrica impressionante
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: IBAMA e as Regras do Código Florestal -->
+    <section id="ibama" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Text and Info -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-semibold">
+                        <i class="fa-solid fa-gavel text-xs"></i>
+                        <span>Legislação & Fiscalização</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+                        O Papel do IBAMA e o Rigor do Código Florestal Brasileiro
+                    </h2>
+                    <p class="text-stone-600 text-lg leading-relaxed">
+                        A força produtiva do campo não pode passar por cima das regras. O Brasil possui um dos códigos florestais mais exigentes do mundo. O monitoramento do IBAMA e as restrições evitam abusos, permitindo que o produtor honesto receba certificações verdes para exportar internacionalmente.
+                    </p>
+                    
+                    <!-- Bullet Points of Rules -->
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-agroGreen-100 text-agroGreen-700 flex items-center justify-center">
+                                <i class="fa-solid fa-tree text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-stone-900">Reserva Legal (RL)</h4>
+                                <p class="text-stone-600 text-sm">Cada propriedade rural deve manter uma porcentagem de mata nativa intocada que varia de 20% (em biomas do sul/sudeste) até 80% (na Amazônia Legal).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-agroGreen-100 text-agroGreen-700 flex items-center justify-center">
+                                <i class="fa-solid fa-water text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-stone-900">Áreas de Preservação Permanente (APPs)</h4>
+                                <p class="text-stone-600 text-sm">Margens de rios, córregos, topos de morro e encostas não podem ser desmatados em hipótese alguma para evitar assoreamento de nascentes e erosões.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-agroGreen-100 text-agroGreen-700 flex items-center justify-center">
+                                <i class="fa-solid fa-fire text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-stone-900">Combate a Queimadas</h4>
+                                <p class="text-stone-600 text-sm">O uso descontrolado de fogo no campo degrada a fertilidade natural da terra, destrói microrganismos protetores e prejudica severamente a qualidade do ar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphic/Visual explanation of Forest Code -->
+                <div class="lg:col-span-5 bg-stone-50 border border-stone-200 p-8 rounded-3xl shadow-lg relative">
+                    <h3 class="text-xl font-bold text-stone-900 mb-6 flex items-center">
+                        <i class="fa-solid fa-shield-halved text-agroGreen-600 mr-2"></i>
+                        Divisão de Uma Fazenda Sustentável
+                    </h3>
+                    <p class="text-sm text-stone-600 mb-6">Exemplo de reserva para propriedade agropecuária fora da Amazônia Legal:</p>
+                    
+                    <!-- Diagram mockup -->
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-stone-700 mb-1">
+                                <span>Área Produtiva (Lavoura/Pasto)</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-stone-200 rounded-full h-3">
+                                <div class="bg-amber-500 h-3 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-stone-700 mb-1">
+                                <span>Reserva Legal Exigida</span>
+                                <span>20%</span>
+                            </div>
+                            <div class="w-full bg-stone-200 rounded-full h-3">
+                                <div class="bg-emerald-600 h-3 rounded-full" style="width: 20%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-bold text-stone-700 mb-1">
+                                <span>APP (Área de Preservação Permanente)</span>
+                                <span>Obrigatória</span>
+                            </div>
+                            <div class="w-full bg-stone-200 rounded-full h-3">
+                                <div class="bg-blue-500 h-3 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Quote -->
+                    <div class="mt-8 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl text-emerald-800 text-xs italic leading-relaxed">
+                        "Produzir com responsabilidade ambiental e respeitar o Código Florestal não é barreira, é vantagem competitiva no mercado internacional." — Selo Verde Brasil
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Section: Quiz Sustentômetro -->
+    <section id="sustentometro" class="py-16 sm:py-24 bg-stone-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-stone-200">
+                <div class="text-center space-y-4 mb-8">
+                    <div class="inline-flex items-center space-x-2 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">
+                        <i class="fa-solid fa-gamepad text-xs"></i>
+                        <span>Jogo Rápido</span>
+                    </div>
+                    <h2 class="text-3xl font-extrabold text-stone-900 tracking-tight">O Sustentômetro do Agro</h2>
+                    <p class="text-stone-600">Teste sua inteligência sobre as conexões entre o agronegócio e a conservação do meio ambiente!</p>
+                </div>
+
+                <!-- Quiz Interactive Container -->
+                <div id="quiz-box" class="space-y-6">
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-stone-100 rounded-full h-2">
+                        <div id="quiz-progress" class="bg-agroGreen-600 h-2 rounded-full transition-all duration-300" style="width: 25%"></div>
+                    </div>
+                    
+                    <!-- Question & Options Block -->
+                    <div id="question-container" class="space-y-4">
+                        <h3 id="question-text" class="text-xl font-bold text-stone-950">1. Qual destas práticas da EMBRAPA consorcia lavoura, pecuária e árvores plantadas na mesma área?</h3>
+                        <div id="options" class="grid gap-3">
+                            <!-- Dynamic JS items insert here -->
+                        </div>
+                    </div>
+
+                    <!-- Footer Controls -->
+                    <div class="flex justify-between items-center pt-4 border-t border-stone-150">
+                        <span id="question-counter" class="text-sm font-medium text-stone-500">Questão 1 de 4</span>
+                        <button id="next-btn" onclick="nextQuestion()" class="hidden bg-agroGreen-700 hover:bg-agroGreen-800 text-white px-5 py-2.5 rounded-xl font-semibold shadow transition-all">
+                            Próxima <i class="fa-solid fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results State -->
+                <div id="quiz-result" class="hidden text-center space-y-6">
+                    <div class="w-24 h-24 bg-emerald-100 text-agroGreen-700 rounded-full flex items-center justify-center mx-auto text-4xl shadow-md">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-stone-900">Resultado do Seu Teste</h3>
+                    <p id="result-text" class="text-stone-600 max-w-md mx-auto"></p>
+                    <div class="bg-agroGreen-50 p-4 rounded-2xl inline-block max-w-sm">
+                        <span class="block text-xs uppercase font-extrabold text-agroGreen-800 tracking-widest">Sua Pontuação</span>
+                        <span id="score-text" class="text-3xl font-black text-agroGreen-700">4/4 Acertos</span>
+                    </div>
+                    <div>
+                        <button onclick="resetQuiz()" class="bg-agroGreen-700 hover:bg-agroGreen-800 text-white px-6 py-3 rounded-xl font-semibold transition">
+                            Tentar Novamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Como a População Pode Ajudar? -->
+    <section id="agir" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:flex lg:items-center lg:justify-between lg:gap-12">
+                <div class="max-w-3xl space-y-6">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">O Papel de Cada Cidadão</h2>
+                    <p class="text-stone-600 text-lg leading-relaxed">
+                        A sustentabilidade do agro não depende somente do produtor do campo. As nossas escolhas diárias exercem um poder imenso sobre o mercado produtor. Veja as melhores maneiras de colaborar com um futuro sustentável:
+                    </p>
+                    
+                    <ul class="grid sm:grid-cols-2 gap-6 mt-8">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 text-agroGreen-700 flex items-center justify-center font-bold">1</span>
+                            <div>
+                                <h4 class="font-bold text-stone-950">Apoie Produtores Certificados</h4>
+                                <p class="text-xs text-stone-600 mt-1">Dê preferência a marcas e alimentos que carregam selos de sustentabilidade orgânica ou selos socioambientais rastreáveis.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 text-agroGreen-700 flex items-center justify-center font-bold">2</span>
+                            <div>
+                                <h4 class="font-bold text-stone-950">Combata o Desperdício</h4>
+                                <p class="text-xs text-stone-600 mt-1">Cerca de 30% de todo alimento produzido no mundo acaba no lixo. Consumir de forma consciente valoriza o suor do campo.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 text-agroGreen-700 flex items-center justify-center font-bold">3</span>
+                            <div>
+                                <h4 class="font-bold text-stone-950">Aprenda e Compartilhe</h4>
+                                <p class="text-xs text-stone-600 mt-1">Divulgue que agro de força e natureza protegida caminham de mãos dadas para desmistificar teorias infundadas sobre o campo brasileiro.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-100 text-agroGreen-700 flex items-center justify-center font-bold">4</span>
+                            <div>
+                                <h4 class="font-bold text-stone-950">Preserve Seu Jardim/Horta</h4>
+                                <p class="text-xs text-stone-600 mt-1">Mesmo nas cidades, incentivar hortas comunitárias e o cultivo consciente ajuda a reequilibrar microclimas urbanos.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Side decorative CTA Box -->
+                <div class="mt-12 lg:mt-0 bg-stone-50 border border-stone-200 rounded-3xl p-8 lg:w-96 flex-shrink-0 text-center space-y-4">
+                    <div class="w-16 h-16 bg-agroGreen-100 text-agroGreen-800 rounded-full flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900">Educação é a Melhor Ferramenta</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">
+                        O Programa Agrinho incentiva anualmente milhares de jovens no Paraná e no Brasil a refletirem sobre sua responsabilidade social e ambiental na terra.
+                    </p>
+                    <a href="https://aluno.escoladigital.pr.gov.br/robotica/concurso_agrinho" target="_blank" rel="noopener noreferrer" class="block w-full text-center bg-stone-900 hover:bg-stone-850 text-white font-semibold py-3 rounded-xl text-xs transition">
+                        Página Oficial do Concurso
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-8 items-center border-b border-stone-800 pb-8 mb-8">
+                <div class="md:col-span-6 flex items-center space-x-3">
+                    <div class="p-2 bg-agroGreen-600 rounded-lg text-white">
+                        <i class="fa-solid fa-leaf text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-white font-extrabold text-lg block leading-tight">Agrinho 2026</span>
+                        <span class="text-xs text-stone-500">Agro forte, futuro sustentável</span>
+                    </div>
+                </div>
+                <div class="md:col-span-6 flex justify-start md:justify-end gap-6 text-sm text-stone-400">
+                    <span>Fontes de Dados Confiáveis:</span>
+                    <a href="https://www.embrapa.br/" target="_blank" rel="noopener noreferrer" class="text-stone-300 hover:text-white transition font-medium">Embrapa</a>
+                    <a href="https://www.gov.br/ibama/" target="_blank" rel="noopener noreferrer" class="text-stone-300 hover:text-white transition font-medium">Ibama</a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                <p>&copy; 2026 Concurso Agrinho Paraná. Todos os direitos reservados. Trabalho focado em educação e conscientização social.</p>
+                <div class="flex gap-4">
+                    <span class="hover:text-white cursor-pointer transition">Termos</span>
+                    <span class="hover:text-white cursor-pointer transition">Privacidade</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript For Menu and Quiz Interactive logic -->
+    <script>
+        // Menu toggle mobile
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if(menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        // Quiz Logic
+        const quizData = [
+            {
+                question: "1. Qual destas práticas consorcia lavoura, pecuária e árvores plantadas na mesma área de terra?",
+                options: [
+                    { text: "ILPF (Integração Lavoura-Pecuária-Floresta)", isCorrect: true },
+                    { text: "Monocultura intensiva", isCorrect: false },
+                    { text: "Queimada controlada", isCorrect: false },
+                    { text: "Drenagem de pântanos", isCorrect: false }
+                ]
+            },
+            {
+                question: "2. Conforme o Código Florestal Brasileiro, qual é o nome da porção de mata nativa intocada exigida em propriedades rurais?",
+                options: [
+                    { text: "Área de Lazer Campestre", isCorrect: false },
+                    { text: "Reserva Legal (RL)", isCorrect: true },
+                    { text: "Pasto de Alívio", isCorrect: false },
+                    { text: "Faixa de Fronteira", isCorrect: false }
+                ]
+            },
+            {
+                question: "3. O que é a Fixação Biológica de Nitrogênio (FBN) desenvolvida e estudada pela EMBRAPA?",
+                options: [
+                    { text: "Uso de agrotóxicos para fertilizar plantações", isCorrect: false },
+                    { text: "Uso de tratores elétricos no campo", isCorrect: false },
+                    { text: "Uso de bactérias que captam nitrogênio do ar naturalmente", isCorrect: true },
+                    { text: "Construção de barragens de cimento", isCorrect: false }
+                ]
+            },
+            {
+                question: "4. Qual é a principal consequência negativa do uso de queimadas na lavoura para limpar o solo?",
+                options: [
+                    { text: "Redução de chuvas na própria região e perda de fertilidade do solo", isCorrect: true },
+                    { text: "Melhoria rápida do solo a longo prazo", isCorrect: false },
+                    { text: "Aumento da umidade do solo", isCorrect: false },
+                    { text: "Proteção contra todos os insetos e pragas", isCorrect: false }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            
+            // Set Progress
+            const progressPercent = ((currentQuestionIndex + 1) / quizData.length) * 100;
+            document.getElementById('quiz-progress').style.width = progressPercent + '%';
+            
+            // Set Counter text
+            document.getElementById('question-counter').innerText = `Questão ${currentQuestionIndex + 1} de ${quizData.length}`;
+            
+            // Set Question Text
+            document.getElementById('question-text').innerText = currentQuestion.question;
+            
+            // Set Options HTML
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            currentQuestion.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full text-left p-4 rounded-2xl border border-stone-200 hover:bg-stone-50 hover:border-agroGreen-400 transition-all font-medium text-stone-800 flex items-center justify-between group';
+                btn.innerHTML = `
+                    <span>${opt.text}</span>
+                    <span class="w-6 h-6 rounded-full border border-stone-300 flex items-center justify-center text-xs group-hover:border-agroGreen-500"><i class="fa-solid fa-circle text-[6px] text-transparent"></i></span>
+                `;
+                btn.onclick = () => selectOption(btn, opt.isCorrect);
+                optionsContainer.appendChild(btn);
+            });
+            
+            // Hide next button initially
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectOption(selectedBtn, isCorrect) {
+            const optionsContainer = document.getElementById('options');
+            const buttons = optionsContainer.getElementsByTagName('button');
+            
+            // Disable all buttons in options
+            for (let btn of buttons) {
+                btn.disabled = true;
+                // Highlight real answer
+                btn.classList.add('opacity-60');
+            }
+            
+            selectedBtn.classList.remove('opacity-60');
+            
+            if(isCorrect) {
+                selectedBtn.classList.add('bg-emerald-100', 'border-emerald-400', 'text-emerald-900');
+                selectedBtn.querySelector('span:last-child').innerHTML = '<i class="fa-solid fa-check text-emerald-600"></i>';
+                selectedBtn.querySelector('span:last-child').classList.add('bg-emerald-200', 'border-emerald-400');
+                score++;
+            } else {
+                selectedBtn.classList.add('bg-rose-100', 'border-rose-400', 'text-rose-900');
+                selectedBtn.querySelector('span:last-child').innerHTML = '<i class="fa-solid fa-xmark text-rose-600"></i>';
+                selectedBtn.querySelector('span:last-child').classList.add('bg-rose-200', 'border-rose-400');
+                
+                // Show the correct answer as well
+                const currentQuestion = quizData[currentQuestionIndex];
+                for(let i = 0; i < currentQuestion.options.length; i++) {
+                    if(currentQuestion.options[i].isCorrect) {
+                        buttons[i].classList.remove('opacity-60');
+                        buttons[i].classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-900');
+                    }
+                }
+            }
+            
+            // Show next button
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if(currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-box').classList.add('hidden');
+            const resultBox = document.getElementById('quiz-result');
+            resultBox.classList.remove('hidden');
+            
+            document.getElementById('score-text').innerText = `${score} de ${quizData.length} Acertos`;
+            
+            let feedback = '';
+            if(score === quizData.length) {
+                feedback = 'Excelente! Você domina perfeitamente o equilíbrio entre o agro e a sustentabilidade e entende o impacto positivo da ciência no campo brasileiro!';
+            } else if (score >= 2) {
+                feedback = 'Muito bom! Você possui um ótimo conhecimento sobre o tema, porém vale a pena revisar as tecnologias da EMBRAPA e o Código Florestal para alcançar o topo.';
+            } else {
+                feedback = 'Continue estudando! O tema do Agrinho 2026 é uma excelente oportunidade para compreendermos como a agricultura tecnológica ajuda a resguardar nossas florestas!';
+            }
+            
+            document.getElementById('result-text').innerText = feedback;
+        }
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-box').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        // Initialize Quiz on window load
+        window.onload = function() {
+            loadQuestion();
+        }
+    </script>
+</body>
+</html>
